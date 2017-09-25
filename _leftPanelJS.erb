@@ -1,0 +1,114 @@
+<script type="text/javascript">
+
+    $("#leftBar-content").width(0);
+    var checkIfSubMenuOpened = false;
+
+    function toggleLeftPanel(){
+        var panelWidth = $("#leftBar-content").width();
+        var navbarHeight = $("#header-content").height();
+        $("#left-panel-btn").css({"margin-left": "92%"});
+        console.log(panelWidth)
+        if(panelWidth != 0){
+            if(checkIfSubMenuOpened){
+              $("#submenus").children().hide();
+              checkIfSubMenuOpened = false; 
+            }
+
+            else{
+              $("#leftBar-content").animate({
+                width: 0
+              });
+
+              $("#leftBar-content").css({"display": "none"});
+              $("#left-panel-btn").css({"margin-left": "-3%"});
+              $("#outward-panel-icon").css({"display": "block"});
+              $("#inward-panel-icon").css({"display": "none"}); 
+              $("#outward-panel-icon").show();
+              if(navbarHeight != 0){
+                $("div#content").css('pointer-events','none'); 
+                $("div#content").css({"background-color":"white", "opacity":"0.5"});
+              } 
+              else{
+                $("div#content").css('pointer-events','auto');
+                $("div#content").css({"background-color":"white", "opacity":"1.0", "filter": "Alpha(opacity=100)"});                 
+              }
+             
+            }     
+          }
+
+        else{
+            $("#leftBar-content").animate({
+              width: 264
+          });  
+            $("#leftBar-content").css({"display": "block"});
+            $("#left-panel-btn").css({"margin-left": "92%"});
+            $("#outward-panel-icon").css({"display": "none"});
+            $("#inward-panel-icon").css({"display": "block"});
+            $("div#content").css('pointer-events','none'); 
+            $("div#content").css({"background-color":"white", "opacity":"0.5"});                 
+        }
+    }
+
+
+    $('li.popoutmenu-list').unbind('click');
+    $('li.popoutmenu-list').click(function(){
+      $('li.popoutmenu-list').removeClass("show-green-icon");
+      $('li.popoutmenu-list').each(function(i,j){ 
+          $(j).children().find('img').first().show();
+          $(j).children().find('img').last().hide();           
+       }); 
+      // $("#inward-panel-icon").hide();
+      var category = $(this).attr("data-type");
+      var typeId = category + "-submenu";
+      var submenuCheck = $("div[id= '"+ typeId +"']").is(":hidden");
+      var panelBtnMargin = "178%";
+      if(category == "fact-find")
+        panelBtnMargin = "165%"
+
+      if(category == "search-illustration")
+        panelBtnMargin = "183%"
+
+      if(category == "eapp")
+        panelBtnMargin = "193%"
+
+      if(category == "resources")
+        panelBtnMargin = "204%"
+
+      if(category == "dashboard")
+        panelBtnMargin = "204%"
+     
+      $("div[id= 'submenus'] > div[id!= '"+ typeId +"']").hide();
+      if(submenuCheck){
+        $("div[id= '"+ typeId +"']").show();
+        // $("#left-panel-btn").css({"margin-left": panelBtnMargin});
+        // $("#left-panel-btn").css({"margin-top": $("div[id= '"+ typeId +"']").css("marginTop")});
+
+        // $("#outward-panel-icon").hide();
+        $("#inward-panel-icon").hide();
+        $(this).addClass('show-green-icon');
+        checkIfSubMenuOpened = true;
+      }
+      else{
+        $("div[id= '"+ typeId +"']").hide();
+        // $("#left-panel-btn").css({"margin-left": "92%"});
+        // $("#left-panel-btn").css({"margin-top": "2%"}); 
+        $("#inward-panel-icon").show();
+        $(this).removeClass('show-green-icon');      
+        checkIfSubMenuOpened = false;
+      }
+      
+      $('li.popoutmenu-list').removeClass('list-item-visited');
+      $(this).addClass('list-item-visited');
+      if($(this).hasClass("show-green-icon")){
+        $(this).children().find('img').first().hide();
+        $(this).children().find('img').last().show();        
+      }
+      else{
+        $(this).children().find('img').first().show();
+        $(this).children().find('img').last().hide(); 
+      }
+
+    });
+
+   
+</script>    

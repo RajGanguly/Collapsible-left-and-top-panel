@@ -1,0 +1,112 @@
+
+
+<style type="text/css">
+@font-face { font-family: NewJune-Semibold; src: url("/public/fonts/NewJune-Semibold.otf") format("opentype"); }
+@font-face { font-family: NewJune-Light; src: url("/public/fonts/NewJune-Light.otf") format("opentype"); }
+ul.header-content {
+    list-style-type: none;
+    /*margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;*/
+    /*height: 10%;*/
+    color:#ffffff; 
+    font-weight:normal !important;
+    font-size:15px; 
+    font-family: NewJune-Medium;
+    margin-left:10%;
+}
+ul.header-content > li h1{
+position: relative;
+    top: -40px; left:-24px;
+}
+
+ul.header-content > li {
+  display:inline-block;
+  /*margin-top: -51px;*/
+  /*min-width: 100px;*/
+  width:8%;
+  /*padding:5px;*/
+}
+
+ul.header-content > li:(:last-child){
+   /* float: left;
+    width: auto;
+    background-color: #404040;
+    text-align: center;*/
+    /*width:20%;
+    margin-right:0%;
+    position:fixed;*/
+}
+
+ul.header-content a{
+  color: #FFFFFF !important;
+  font-weight: normal;
+  /*font-family: New June;*/
+text-shadow:none !important;
+}
+ul.header-content > li img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 16px;
+}
+ul.header-content p{
+  margin-top: 6px;
+  text-align: center;
+}
+
+/*ul.header-content a:link, a:visited {
+    display: block;
+    /*width: 120px;*/
+   /* font-weight: normal;
+    color: #FFFFFF;
+    
+   */
+    /**/
+    /*text-decoration: none;*/
+    /*text-transform: uppercase;*/
+}*/
+
+
+/*changes by vimarao*/
+</style>
+
+
+
+
+<div id= "header-content" style= "width: 100%; background-color: #404040; position: relative; top: 5%; margin-top: 0px; display:none; opacity: 1.0;z-index: 10;"> 
+   
+      <ul class= "header-content" style="margin-left: 0 !important;">
+        <li name= "module-name" style="width:12%; font-size:18px;"><a href="#"><span style= "color: white;font-size: 20px;font-weight: normal;font-family: NewJune-Medium;padding: 0%;"><p style="padding: 0%; text-align: left; position: relative; top: -32px; left: -23px;vertical-align: top;"><%= $moduleName %></p></a></li>
+
+
+        
+
+         <li onclick="location.href='/app/Menu/landingPage';" ><a href="#"><span><img src="/public/images/TokioMarine/LandingIcons/TMIM-green-icons-home.png" width="60" height="60"></span><p><%= getLabelValue('Home')%></p></a></li>
+
+         <li onclick="location.href='/app/LeadFNA/getFNAStartPage';"><a href="#"><span><img src="/public/images/TokioMarine/LandingIcons/TMIM-green icons-financial-needs-analysis.png" width="60" height="60"></span><p><%= getLabelValue('FNAQuickLink')%></p></a></li>
+
+         <li onclick="location.href='/app/Quotation/captureIllustration';"><a href="#"><span><img src="/public/images/TokioMarine/LandingIcons/TMIM-green-icons-sales-illustration.png" width="60" height="60"></span><p><%= getLabelValue('QuickSIQuickLink')%></p></a></li>
+
+         <!-- <li onclick="location.href='/app/Level0/entrypoint';"><a href="#"><span><img src="/public/images/TokioMarine/LandingIcons/TMIM-green-icons-Resources.png" width="60" height="60"></span><p><%#= getLabelValue('Resources')%></p></a></li>
+ -->
+         <li onclick="location.href='/app/LabelValue/languageSettings';"><a href="#"><span><img src="/public/images/TokioMarine/LandingIcons/TMIM-green-icons-language.png" width="60" height="60"></span><p style=""><%= getLabelValue('languageCd')%></p></a></li>
+
+         <li onclick="location.href='/app/SyncCategory/syncPreferences';"><a href="#"><span><img src="/public/images/TokioMarine/LandingIcons/TMIM-green-icons-sync.png" width="60" height="60"></span><p><%= getLabelValue('SyncQuickLink')%></p></a></li>
+
+         <li onclick="location.href='/app/Menu/settings';"><a href="#" ><span><img src="/public/images/TokioMarine/LandingIcons/TMIM-green icons-account-setting.png" width="60" height="60"></span><p><%= getLabelValue('SETTINGS')%></p></a></li>
+
+        <!-- <li style= "margin-left:-2.4%;"><a href="#" style="margin-left:34%;"><span ><img src="/public/images/tokio-marine-logo.png" width="150" height="80"></span></a></li> -->
+        <li style= "margin-left:9.6%;"><a href="#" style="margin-left:15%;"><span ><img src="/public/images/tokio-marine-logo.png" style="position:relative; top:-130px; width:210px;height:95px;" /></span></a></li>
+
+      </ul>
+</div>
+
+  <div>
+      <span id= "top-navbar-btn" style= "margin-left: 90%; margin-top:0 !important; position: absolute; z-index: 10;"><a href= "#" onclick= "toggleHeader()"><img src="/public/images/TokioMarine/LandingIcons/header-icon-down.png" width="50" height="50" id= "header-icon-down"/>
+      <img src="/public/images/TokioMarine/LandingIcons/header-icon-up.png" width="50" height="50" id= "header-icon-up" style= "display:none;"/>
+      </a></span>
+    </div>  
+
+ <%= render(:partial => '/app/Menu/navbarJS')%>

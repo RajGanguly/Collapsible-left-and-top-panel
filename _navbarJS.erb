@@ -1,0 +1,44 @@
+<script type="text/javascript">
+$("#header-content").height(0);
+
+   function toggleHeader(){
+    // $("#header-content").slideToggle();
+    var navbarHeight = $("#header-content").height();
+    var panelWidth = $("#leftBar-content").width();
+    if(navbarHeight != 0){
+        $("#header-content").animate({
+          height: 0
+      });
+        $("#header-content").css({"display": "none"});
+        // $("#top-navbar-btn").css({"margin-left": "-3%"});
+        $("#header-icon-down").css({"display": "block"});
+        $("#header-icon-up").css({"display": "none"});
+        if(panelWidth != 0){
+          $("div[id= 'content']").css('pointer-events','none'); 
+          $("div[id= 'content']").css({"background-color":"white", "opacity":"0.5"});
+          $("div[id= 'footer-container']").css('pointer-events','none'); 
+          $("div[id= 'footer-container']").css({"background-color":"white", "opacity":"0.5"});
+        } 
+        else{
+          $("div[id= 'content']").css('pointer-events','auto');
+          $("div[id= 'content']").css({"background-color":"white", "opacity":"1.0", "filter": "Alpha(opacity=100)"});
+          $("div[id= 'footer-container']").css('pointer-events','auto');
+          $("div[id= 'footer-container']").css({"background-color":"white", "opacity":"1.0", "filter": "Alpha(opacity=100)"});                              
+        }          
+    }
+
+    else{
+        $("#header-content").animate({
+          height: 120
+      });  
+        $("#header-content").css({"display": "block"});
+        // $("#top-navbar-btn").css({"margin-left": "92%"});
+        $("#header-icon-down").css({"display": "none"});
+        $("#header-icon-up").css({"display": "block"});
+        $("div[id= 'content']").css('pointer-events','none'); 
+        $("div[id= 'content']").css({"background-color":"white", "opacity":"0.5"});
+        $("div[id= 'footer-container']").css('pointer-events','none'); 
+        $("div[id= 'footer-container']").css({"background-color":"white", "opacity":"0.5"});
+    }    
+  }
+</script> 

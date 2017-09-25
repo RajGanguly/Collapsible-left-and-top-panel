@@ -1,0 +1,242 @@
+<style type="text/css">
+
+
+@font-face { font-family: NewJune-Medium; src: url("/public/fonts/NewJune-Medium.otf") format("opentype"); }
+ @font-face { font-family: NewJune-Bold; src: url("/public/fonts/NewJune-Bold.otf") format("opentype"); }
+ @font-face { font-family: NewJune-Regular; src: url("/public/fonts/NewJune-Regular.otf") format("opentype"); }
+ @font-face { font-family: NewJune-Semibold; src: url("/public/fonts/NewJune-Semibold.otf") format("opentype"); }
+ @font-face { font-family: NewJune-Light; src: url("/public/fonts/NewJune-Light.otf") format("opentype"); }
+
+    .leftBar ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .leftbar a{
+        width:30%;
+        display: block;
+        padding: 6px;
+        /*padding: 15px;*/
+        color: #FFF !important;
+        text-shadow:none !important;
+
+
+    }
+
+    .leftBar-content{
+        overflow: auto; 
+        position: relative;
+        z-index: 2;
+
+    }
+
+    .leftbar{
+        width: 20%;
+    }
+
+    ul.leftBar-content li{
+        color: white;
+        padding: 11px;
+        /*width: 100%;*/
+        /*padding: 20px;*/
+         text-shadow:none !important;
+    }
+
+    ul.leftBar-content a:link, a:visited {
+        color: #FFFFFF;
+        text-align: left;
+        text-decoration: none;
+    }
+
+    ul.leftBar-content li:hover, li:active, li:visited {
+        /*background-color: rgb(204, 204, 204);*/
+        width:85%;
+
+    }
+
+    #contact-management-submenu{
+        margin-left: 100%;
+        margin-top: 0%;
+        position: absolute;
+        z-index: 10;
+    }
+
+    #fact-find-submenu{
+        margin-left: 100%;
+        margin-top: 43%;  
+        position: absolute;
+        z-index: 10;              
+    }
+
+
+    #search-illustration-submenu{
+        margin-left: 100%;
+        margin-top: 76%;  
+        position: absolute;
+        z-index: 10;              
+    }
+
+    #eapp-submenu{
+        margin-left: 100%;
+        margin-top: 110%;  
+        position: absolute;
+        z-index: 10;              
+    }
+
+    #resources-submenu{
+        margin-left: 100%;
+        margin-top: 0%;
+        position: absolute;
+        z-index: 10;
+    }
+
+    #dashboard-submenu{
+        margin-left: 100%;
+        margin-top: 135%;
+        position: absolute;
+        z-index: 10;
+    }
+    
+    #submenus{
+        width: 100%;
+    }
+
+    #submenus ul{
+        width: 200%;
+        height: auto;
+        list-style-type: none;
+        margin: 0;
+        padding: 0; 
+        background-color: #404040 !important;       
+    }
+
+    #submenus li{
+        padding: 20px;
+    } 
+
+    #submenus li:hover, li:active, li:visited{
+        background-color: rgb(204, 204, 204);
+    } 
+
+    .list-item-visited{
+       background-color: rgb(204, 204, 204);
+       width:85%;
+    }
+
+    #submenus a{
+      color: white;
+    }   
+
+</style>
+
+<div>
+    <!-- <span id= "left-panel-btn" style= "margin-left:3% !important; margin-top: 10%; position: absolute; z-index: 100;"><a href= "#" onclick= "toggleLeftPanel()" data-overlay-theme="b" >
+      <img src="/public/images/TokioMarine/LandingIcons/right-panel-logo.png" width="50" id= "outward-panel-icon" height="50" />
+      <img src="/public/images/TokioMarine/LandingIcons/left-panel-logo.png" width="50" height="50" id= "inward-panel-icon" style= "display: none;"/></a>
+    </span> -->
+
+    <span id= "left-panel-btn" style= "margin-top: 5%; position: absolute; z-index: 100;"><a href= "#" onclick= "toggleLeftPanel()" data-overlay-theme="b" >
+      <img src="/public/images/TokioMarine/LandingIcons/right-panel-logo.png" width="50" id= "outward-panel-icon" height="50" />
+      <img src="/public/images/TokioMarine/LandingIcons/left-panel-logo.png" width="50" height="50" id= "inward-panel-icon" style= "display: none;"/></a>
+    </span>                  
+</div>   
+
+
+<div id= "submenus" style= "font-family: NewJune-Light;">
+    <div id= "contact-management-submenu" style= "display: none; z-index:100; font-family: NewJune-Light;">
+        <ul>
+            <li onclick= "location.href= '<%= url_for :controller => :Lead, :action => :captureLead %>';"><a href= "#"  style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('CreateContact')%></a></li>
+            <li onclick="location.href='/app/Lead/searchContact';"><a href= "#" style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('searchcontact')%></a></li>
+            <li onclick= "location.href= '/app/Lead/testActivity';" ><a href= "#" style="font-weight:normal !important;font-size:19px;" ><%= getLabelValue('ACTIVITYLIST')%></a></li>
+            <li  onclick="location.href='/app/Lead/getBirthdayLeads';"><a href= "#" style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('birthdays')%></a></li>
+        </ul>    
+    </div> 
+
+    <div id= "fact-find-submenu" style= "display: none; z-index:100; font-family: NewJune-Light;">
+      <ul><li onclick="location.href='/app/LeadRPQ/newSearchFactFind';"><a href= "#" style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('searchfactfind')%></a></li><ul>  
+    </div> 
+
+    <div id= "search-illustration-submenu" style= "display: none; z-index:100; font-family: NewJune-Light;">
+        <ul>
+            <li onclick="location.href= '<%= url_for :controller => :Quotation, :action => :searchIllustration, :query => {:searchType => "SALESILLUSTRATION"} %>';"><a href= "#" style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('SEARCHILLUSTRATION')%></a></li>
+            <li onclick= "location.href= '<%= url_for :controller => :Quotation, :action => :searchIllustration, :query => {:searchType => "QuickSIQuickLink"} %>';"><a href= "#" style="font-weight:normal !important;font-size:19px;"><%=getLabelValue('QuickSISearch_Main')%></a></li>
+        </ul>    
+    </div> 
+
+    <div id= "eapp-submenu" style= "display: none; z-index:100; font-family: NewJune-Light;">
+        <ul>
+            <li  onclick="location.href='/app/Policy/searchEapplication';" ><a href= "#" style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('searcheApplicationMenu')%></a></li>
+            <li  onclick="location.href='/app/CounterOfferDetails/searchCounterOffer';" ><a href= "#" style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('Search_Main')%><%= getLabelValue('FOLLOWUPCOUNTEROFFER')%></a></li>
+
+             <li  onclick="location.href='/app/Policy/searchPendingRequirements'"><a href= "#" style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('SearchPendingReq')%></a></li>
+             <li  onclick="location.href='/app/Policy/searchPendingExtraPrem';"><a href= "#" style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('SearchPendingExtraPrem')%></a></li>
+        </ul>    
+    </div> 
+
+<!-- 
+    <div id= "resources-submenu" style= "display: none; z-index:100; font-family: NewJune-Light;">
+        <ul>
+            <li><a href="/app/Level1#6'%>}/click?level1id=<%#='20'%>" style="font-weight:normal !important;font-size:19px;"><%# getLabelValue('About Us')%></a></li>
+            <li><a href="/app/Level1/{<%#='1'%>}/click?level1id=<%#='1'%>" style="font-weight:normal !important;font-size:19px;"><%#= getLabelValue('Products')%></a></li>
+            <li><a href= "#" style="font-weight:normal !important;font-size:19px;"><%#= getLabelValue('fundOverview')%></a></li>
+            <li><a href= "#" style="font-weight:normal !important;font-size:19px;"><%#= getLabelValue('New Business Guidelines')%></a></li>
+            <li><a href= "#" style="font-weight:normal !important;font-size:19px;"><%#= getLabelValue('forms')%></a></li>
+            <li><a href= "#" style="font-weight:normal !important;font-size:19px;"><%#= getLabelValue('Panel Hospital/Clinic')%></a></li>
+            <li><a href="/app/Level1/{<%#='5'%>}/click?level1id=<%#='5'%>" style="font-weight:normal !important;font-size:19px;"><%#= getLabelValue('contactus')%></a></li>
+        </ul>    
+    </div> -->
+
+      <div id= "dashboard-submenu" style= "display: none; z-index:100; font-family: NewJune-Light;">
+        <ul>
+             <li onclick="location.href='/app/ProposalStatus/clientStatus';"><a href= "#" style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('clientStatusDb')%></a></li>
+             <li onclick="location.href='/app/SubmittedCases/casesOnTablet';" ><a href= "#" style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('casesOnTablet')%></a></li>
+             <li onclick="location.href='/app/SubmittedCases/submittedCases';" ><a href= "#" style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('submittedCases')%></a></li>
+        </ul>    
+    </div> 
+
+
+</div>       
+
+<div id= "leftBar-content" style= "display:none; opacity: 1; width:247px; float:left; font-family: NewJune-Light;">
+    <ul class= "leftBar-content">                 
+        <li class= "popoutmenu-list" data-type= "contact-management"><a href="#">
+            <span style="float:left;width:30%;margin-top:8%;"><img src="/public/images/TokioMarine/LeftPanel/ContactManagement-blue.png" width="50" height="50">
+            <img src="/public/images/TokioMarine/LeftPanel/contactManagement-green.png" width="50" height="50" style= "display:none;">    
+            </span><p style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('Contact_Menu')%><br> <%= getLabelValue('Management_Menu')%>
+            </p></a>   
+        </li>
+
+        <li class= "popoutmenu-list" data-type= "fact-find"><a href="#"><span style="float:left;width:30%;margin-top:2%;"><img src="/public/images/TokioMarine/LeftPanel/factFind-blue.png" width="50" height="50">
+        <img src="/public/images/TokioMarine/LeftPanel/factfind-green.png" width="50" height="50" style= "display:none;">      
+        </span><p style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('FactFind_Menu')%></p></a></li>
+
+        <li class= "popoutmenu-list" data-type= "search-illustration"><a href="#"><span style="float:left;width:30%;margin-top:2%;"><img src="/public/images/TokioMarine/LeftPanel/SalesIllustartion-blue.png" width="50" height="50">
+        <img src="/public/images/TokioMarine/LeftPanel/si-green.png" width="50" height="50" style= "display:none;">             
+        </span><p style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('SALESILLUSTRATION')%></p></a></li>
+
+        <li class= "popoutmenu-list" data-type= "eapp"><a href="#"><span style="float:left;width:30%;margin-top:2%;"><img src="/public/images/TokioMarine/LeftPanel/eApplication.png" width="50" height="50">
+        <img src="/public/images/TokioMarine/LeftPanel/eapp-green.png" width="50" height="50" style= "display: none;">            
+        </span><p style="font-weight:normal !important;font-size:19px;" ><%= getLabelValue('eApplication')%></p></a></li>
+
+   <!--      <li class= "popoutmenu-list" data-type= "resources"><a href="#"><span style="float:left;width:30%;margin-top:2%;">
+        <img src="/public/images/TokioMarine/LeftPanel/resourse-blue.png" width="50" height="50">
+        <img src="/public/images/TokioMarine/LeftPanel/resourse-green.png" width="50" height="50" style= "display:none;">      
+        </span><p style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('Resources')%></p></a></li> -->
+
+        <li class= "popoutmenu-list" data-type= "dashboard"><a href="#" ><span style="float:left;width:30%;margin-top:2%;"><img src="/public/images/TokioMarine/LeftPanel/dashboard-blue.png" width="50" height="50">
+        <img src="/public/images/TokioMarine/LeftPanel/dashboard-green.png" width="50" height="50" style= "display:none;">    
+        </span><p style="font-weight:normal !important;font-size:19px;"><%= getLabelValue('dashBoardMenu')%></p></a></li>
+
+        <li class= "popoutmenu-list"  onclick="location.href='/app/LeadFNA/getFNAStartPage';" data-type= "fna"><a href="#" ><span style="float:left;width:30%;">
+        <img src="/public/images/TokioMarine/LeftPanel/Fna-blue.png" width="50" height="50">
+        <img src="/public/images/TokioMarine/LeftPanel/fna-green.png" width="50" height="50" style= "display:none;">            
+        </span><p style="font-weight:normal !important;font-size:19px; margin-top:6px;"><%= getLabelValue('FinancialNeeds01')%><br><%= getLabelValue('FinancialNeeds02')%></p></a></li>
+
+        <li onclick="location.href='/app/Menu/exit';" data-type= "exit"><a href="#"><span style="float:left;width:30%;margin-top:2%;"><img src="/public/images/TokioMarine/LeftPanel/TMLM-exit-icon-blue.png" width="50" height="50">
+        <img src="/public/images/TokioMarine/LeftPanel/TMLM-exit-icon-green.png" width="50" height="50" style= "display:none;">            
+        </span><p style="font-weight:normal !important;font-size:19px;margin-left:31%;" ><%= getLabelValue('exit')%></p></a></li>
+    </ul>
+</div>
+
+<%= render(:partial => '/app/Menu/leftPanelJS')%>
